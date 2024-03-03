@@ -11,15 +11,21 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import shared.client.RestClient
 import shared.client.RestClient.Companion.SERVER_URL
 
 class RestAgendaAPI(private val client: RestAgendaClient) : AgendaAPI {
     override fun search(criteria: SearchAgendaCriteria): Flow<List<Agenda>> = flow {
         when (criteria) {
-            is ByWeekAndYear -> emit(client.searchBy(criteria.week, criteria.year))
+            is ByWeekAndYear -> (client.searchBy(criteria.week, criteria.year))
         }
     }
+
+    override suspend fun searchV2(criteria: SearchAgendaCriteria): List<Agenda> =
+        when (criteria) {
+            is ByWeekAndYear -> client.searchBy(criteria.week, criteria.year)
+        }
 
     override suspend fun book(agendaId: String, hour: String, player: Player): Agenda {
         TODO("Not yet implemented")

@@ -10,4 +10,7 @@ import kotlinx.coroutines.flow.Flow
 class AgendaSearcher(private val api: AgendaAPI) {
     operator fun invoke(year: Year, week: Week): Flow<List<Agenda>> =
         api.search(ByWeekAndYear(week, year))
+
+    suspend fun invoke2(year: Year, week: Week): List<Agenda> =
+        api.searchV2(ByWeekAndYear(week, year))
 }

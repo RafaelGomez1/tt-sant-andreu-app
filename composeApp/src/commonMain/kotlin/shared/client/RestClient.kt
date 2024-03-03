@@ -15,6 +15,7 @@ class RestClient {
         install(ContentNegotiation) {
             json(
                 Json {
+                    ignoreUnknownKeys = true
                     prettyPrint = true
                     isLenient = true
                 }
