@@ -61,6 +61,7 @@ kotlin {
             // Ktor Client
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.logging)
 
             // Arrow
             implementation(libs.arrow.core)
@@ -68,6 +69,12 @@ kotlin {
             // Koin
             api(libs.koin.core)
             api(libs.koin.test)
+
+            // Moko for multiplatform view models
+            api(libs.mvvm.core)
+            api(libs.mvvm.compose)
+            api(libs.mvvm.flow)
+            api(libs.mvvm.flow.compose)
         }
     }
 }

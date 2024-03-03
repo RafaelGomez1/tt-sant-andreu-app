@@ -1,11 +1,11 @@
 package agenda.domain
 
-import com.benasher44.uuid.Uuid
+import kotlinx.coroutines.flow.Flow
 
 interface AgendaAPI {
-    suspend fun search(criteria: SearchAgendaCriteria): List<Agenda>
-    suspend fun book(agendaId: Uuid, hour: Uuid, player: Player)
-    suspend fun cancelBooking(agendaId: Uuid, hourId: Uuid, player: Player)
+    fun search(criteria: SearchAgendaCriteria): Flow<List<Agenda>>
+    suspend fun book(agendaId: String, hour: String, player: Player): Agenda
+    suspend fun cancelBooking(agendaId: String, hourId: String, player: Player): Agenda
 }
 
 sealed interface SearchAgendaCriteria {

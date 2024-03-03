@@ -20,9 +20,12 @@ kotlin = "1.9.22"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.6.3"
 ktor-core = "2.3.8"
+#lifecycleViewmodelKtx = "2.8.0"
+mvvmCore = "0.16.1"
 uuid = "0.8.2"
 
 [libraries]
+#androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrowCore" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinAndroid" }
@@ -43,9 +46,14 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-core" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-core" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor-core" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-core" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor-core" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor-core" }
+mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mvvmCore" }
+mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mvvmCore" }
+mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mvvmCore" }
+mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mvvmCore" }
 uuid = { module = "com.benasher44:uuid", version.ref = "uuid" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
