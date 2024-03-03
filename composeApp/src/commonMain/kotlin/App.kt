@@ -26,14 +26,11 @@ fun App() {
     val api = RestAgendaAPI(agendaClient)
 
     val viewModel = getViewModel(
-        key = "agendas-view-screen",
+        key = Unit,
         factory = viewModelFactory {
             AgendaViewModel(api)
         }
     )
-
-    val viewModel2 = AgendaViewModel(api)
-
 
     MaterialTheme {
         val state by viewModel.state.collectAsState()

@@ -21,30 +21,42 @@ fun AvailableHourRow(
             .fillMaxWidth()
             .padding(8.dp)
     ) {
-        // Show "From - To" column
-        Text(text = "${hour.from} - ${hour.to}")
+        Column {
+            Text(text = "${hour.from} - ${hour.to}")
+        }
 
         Spacer(modifier = Modifier.width(16.dp))
 
-        // Show registered players
-        Text(text = "Registered Players: ${hour.registeredPlayers.joinToString { it.name }}")
+        Column {
+            hour.registeredPlayers.forEach { Text(it.name) }
+        }
 
         Spacer(modifier = Modifier.width(16.dp))
 
-        // Show availability status
-        Text(text = if (hour.registeredPlayers.size < hour.capacity.value) "Disponible" else "Lleno")
+        Column {
+            Text(text = if (hour.isAtMaxCapacity()) "Lleno" else "Disponible")
+        }
 
         Spacer(modifier = Modifier.weight(1f))
 
         // Buttons for actions
-        Button(onClick = { /* Handle Add action */ }) {
-            Text(text = "Add")
+        Column {
+            if (hour.isNotAtMaxCapacity()) {
+                Button(onClick = { /* Handle Add action */ }) {
+                    Text(text = "Add")
+                }
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            if (hour.isNotEmpty()) {
+                Button(onClick = { /* Handle Remove action */ }) {
+                    Text(text = "Remove")
+                }
+            }
         }
 
-        Spacer(modifier = Modifier.width(8.dp))
 
-        Button(onClick = { /* Handle Remove action */ }) {
-            Text(text = "Remove")
-        }
+
     }
 }

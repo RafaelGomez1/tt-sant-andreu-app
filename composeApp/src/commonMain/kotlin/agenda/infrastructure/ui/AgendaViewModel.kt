@@ -40,7 +40,6 @@ class AgendaViewModel(
     private val internalState = MutableStateFlow(AgendaViewModelState())
 
     init {
-        // Perform initial search operation to populate the state
         viewModelScope.launch {
             val state = internalState.value
             val initialAgendas = searchAgenda.invoke2(state.year, state.week)

@@ -22,7 +22,11 @@ data class AvailableHour(
     val capacity: MaxCapacity,
     val type: HourType,
     val registeredPlayers: List<Player>
-)
+) {
+    fun isAtMaxCapacity(): Boolean = registeredPlayers.size == capacity.value
+    fun isNotAtMaxCapacity(): Boolean = !isAtMaxCapacity()
+    fun isNotEmpty(): Boolean = registeredPlayers.isNotEmpty()
+}
 
 @Serializable
 data class Player(val name: String) {
