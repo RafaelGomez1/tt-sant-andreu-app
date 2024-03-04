@@ -13,4 +13,5 @@ class AgendaSearcher(private val api: AgendaAPI) {
 
     suspend fun invoke2(year: Year, week: Week): List<Agenda> =
         api.searchV2(ByWeekAndYear(week, year))
+            .filter { it.availableHours.isNotEmpty() }
 }

@@ -32,10 +32,13 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
-
             implementation(libs.koin.android)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
+
+//            implementation(libs.androidx.ui.tooling.preview.android)
+//            implementation(libs.ui.tooling.preview)
+//            implementation(libs.androidx.compose.bom)
         }
 
         iosMain.dependencies {
@@ -112,4 +115,5 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
+
 

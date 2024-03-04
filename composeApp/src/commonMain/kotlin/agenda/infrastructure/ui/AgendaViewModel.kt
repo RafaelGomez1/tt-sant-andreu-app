@@ -31,7 +31,7 @@ import org.koin.core.component.KoinComponent
 
 class AgendaViewModel(
     api: AgendaAPI
-) : ViewModel(), KoinComponent {
+) : ViewModel() {
 
     private val searchAgenda = AgendaSearcher(api)
     private val bookAgenda = AgendaBooker(api)
@@ -85,44 +85,5 @@ data class AgendaViewModelState(
     val week: Int = today.toWeekNumber(),
     val year: Int = today.toYear()
 )
-
-private fun generateRandomAgendas(): List<Agenda> =
-    listOf(
-        Agenda(
-            id = "1234",
-            day = Day(1, DayOfWeek.MONDAY),
-            month = Month.FEBRUARY,
-            week = 9,
-            year = 2024,
-            availableHours =
-                listOf(
-                    AvailableHour(
-                        id = "12345",
-                        from = 16,
-                        to = 17,
-                        capacity = MaxCapacity(8),
-                        type = HourType.MEMBERS_TIME,
-                        registeredPlayers = listOf(
-                            Player("Juan Carles"),
-                            Player("Castella"),
-                            Player("Luis"),
-                            Player("Rafa"),
-                            Player("Antonio"),
-                            Player("Julian"),
-                            Player("Eusebio"),
-                            Player("Josep"),
-                        )
-                    ),
-                    AvailableHour(
-                        id = "12346",
-                        from = 17,
-                        to = 18,
-                        capacity = MaxCapacity(8),
-                        type = HourType.MEMBERS_TIME,
-                        registeredPlayers = emptyList()
-                    )
-                )
-        )
-    )
 private fun Instant.toYear(): Int = this.toLocalDateTime(TimeZone.UTC).date.year
 private fun Instant.toWeekNumber(): Int= (this.toLocalDateTime(TimeZone.UTC).date.dayOfYear / 7)

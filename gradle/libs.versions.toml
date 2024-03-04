@@ -13,6 +13,7 @@ androidx-test-junit = "1.1.5"
 arrowCore = "1.2.0"
 compose = "1.6.2"
 compose-plugin = "1.5.12"
+composeBom = "2024.02.01"
 coroutines = "1.7.3"
 junit = "4.13.2"
 koinAndroid = "3.2.0"
@@ -22,10 +23,13 @@ kotlinxSerializationJson = "1.6.3"
 ktor-core = "2.3.8"
 #lifecycleViewmodelKtx = "2.8.0"
 mvvmCore = "0.16.1"
+uiToolingPreview = "1.6.2"
 uuid = "0.8.2"
+uiToolingPreviewAndroid = "1.6.2"
 
 [libraries]
 #androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrowCore" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinAndroid" }
@@ -54,9 +58,11 @@ mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mvvmCo
 mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mvvmCore" }
 mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mvvmCore" }
 mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mvvmCore" }
+ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 uuid = { module = "com.benasher44:uuid", version.ref = "uuid" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+androidx-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
